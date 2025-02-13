@@ -16,7 +16,13 @@ public class PasswordHasher : IPasswordHasher
     public string Hash(string password)
     {
         var salt = RandomNumberGenerator.GetBytes(SaltSize);
-        var hash = Rfc2898DeriveBytes.Pbkdf2(password, salt, Iterations, _hashAlgorithmName, KeySize);
+        var hash = Rfc2898DeriveBytes.Pbkdf2(
+            password,
+            salt,
+            Iterations,
+            _hashAlgorithmName,
+            KeySize
+        );
 
         return string.Join(Delimiter, Convert.ToBase64String(salt), Convert.ToBase64String(hash));
     }
@@ -27,7 +33,13 @@ public class PasswordHasher : IPasswordHasher
         var salt = Convert.FromBase64String(elements[0]);
         var hash = Convert.FromBase64String(elements[1]);
 
-        var hashInput = Rfc2898DeriveBytes.Pbkdf2(inputPassword, salt, Iterations, _hashAlgorithmName, KeySize);
+        var hashInput = Rfc2898DeriveBytes.Pbkdf2(
+            inputPassword,
+            salt,
+            Iterations,
+            _hashAlgorithmName,
+            KeySize
+        );
 
         return CryptographicOperations.FixedTimeEquals(hash, hashInput);
         throw new NotImplementedException();

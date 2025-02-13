@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PortfolioAPI;
-using PortfolioAPI.Models.Data;
 
 namespace PortfolioAPI.Login
 {
@@ -17,16 +15,11 @@ namespace PortfolioAPI.Login
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignupUser(User user)
+        public async Task<IActionResult> SignupUser(UserSignupDto user)
         {
-            var response = await _loginService.CreateUser(user)
+            var response = await _loginService.CreateUser(user);
 
-            if (response == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(response);
+            return response;
         }
     }
 }
