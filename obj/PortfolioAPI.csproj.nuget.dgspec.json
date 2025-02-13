@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dylansieren/Desktop/2025_portfolio/2025_portfolio_backend/PortfolioAPI.csproj": {}
+    "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj": {}
   },
   "projects": {
-    "/Users/dylansieren/Desktop/2025_portfolio/2025_portfolio_backend/PortfolioAPI.csproj": {
+    "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dylansieren/Desktop/2025_portfolio/2025_portfolio_backend/PortfolioAPI.csproj",
+        "projectUniqueName": "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj",
         "projectName": "PortfolioAPI",
-        "projectPath": "/Users/dylansieren/Desktop/2025_portfolio/2025_portfolio_backend/PortfolioAPI.csproj",
-        "packagesPath": "/Users/dylansieren/.nuget/packages/",
-        "outputPath": "/Users/dylansieren/Desktop/2025_portfolio/2025_portfolio_backend/obj/",
+        "projectPath": "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj",
+        "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/dylansieren/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -79,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

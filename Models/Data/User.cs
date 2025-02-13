@@ -8,6 +8,9 @@ namespace PortfolioAPI.Models.Data;
 public partial class User
 {
     [Key]
+    [Column("id")]
+    public required int Id { get; set; }
+
     [Column("uniqueid")]
     public required Guid UniqueId { get; set; }
 

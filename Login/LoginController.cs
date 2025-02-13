@@ -15,11 +15,11 @@ namespace PortfolioAPI.Login
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignupUser(UserSignupDto user)
+        public async Task<IActionResult> LoginUser(UserLogin user)
         {
-            var response = await _loginService.CreateUser(user);
-
-            return response;
+            var response = await _loginService.LoginUser(user);
+            if (response == null) return BadRequest(new { message = "Email and/or Password is incorrect." });
+            return Ok(response);
         }
     }
 }

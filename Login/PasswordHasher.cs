@@ -42,7 +42,6 @@ public class PasswordHasher : IPasswordHasher
         );
 
         return CryptographicOperations.FixedTimeEquals(hash, hashInput);
-        throw new NotImplementedException();
     }
 }
 

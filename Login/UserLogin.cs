@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PortfolioAPI.Login;
 
-public partial class UserSignupDto
+public partial class UserLogin
 {
     public required string Email { get; set; }
 

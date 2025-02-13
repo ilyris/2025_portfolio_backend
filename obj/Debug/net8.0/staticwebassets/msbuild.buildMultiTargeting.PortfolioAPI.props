@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="../build/PortfolioAPI.props" />
+  <Import Project="..\build\PortfolioAPI.props" />
 </Project>
