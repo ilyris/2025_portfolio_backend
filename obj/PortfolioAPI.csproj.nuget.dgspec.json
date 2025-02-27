@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj": {}
+    "C:\\Users\\dylan\\Desktop\\2025_portfolio_backend\\PortfolioAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj": {
+    "C:\\Users\\dylan\\Desktop\\2025_portfolio_backend\\PortfolioAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj",
+        "projectUniqueName": "C:\\Users\\dylan\\Desktop\\2025_portfolio_backend\\PortfolioAPI.csproj",
         "projectName": "PortfolioAPI",
-        "projectPath": "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj",
+        "projectPath": "C:\\Users\\dylan\\Desktop\\2025_portfolio_backend\\PortfolioAPI.csproj",
         "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\obj\\",
+        "outputPath": "C:\\Users\\dylan\\Desktop\\2025_portfolio_backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config"

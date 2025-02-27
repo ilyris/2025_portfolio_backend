@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1GiNJWAq0CA=",
+  "dgSpecHash": "rak9UjEB67s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dylan\\Desktop\\2025_portfolio\\portfolio_back_end\\PortfolioAPI\\PortfolioAPI.csproj",
+  "projectFilePath": "C:\\Users\\dylan\\Desktop\\2025_portfolio_backend\\PortfolioAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dylan\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.11\\microsoft.aspnetcore.openapi.8.0.11.nupkg.sha512",
     "C:\\Users\\dylan\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.1\\microsoft.entityframeworkcore.9.0.1.nupkg.sha512",
