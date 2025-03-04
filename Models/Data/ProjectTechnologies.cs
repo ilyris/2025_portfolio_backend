@@ -5,17 +5,14 @@ namespace PortfolioAPI.Models.Data;
 
 public class ProjectTechnologies
 {
-
     [Key]
-    [Column("project_id")]  // ✅ Ensure it matches PostgreSQL column name exactly
+    [Column("project_id")]
     public int ProjectId { get; set; }
 
-    [Column("technology_id")]  // ✅ Ensure it matches PostgreSQL column name exactly
+    [Key]
+    [Column("technology_id")]
     public int TechnologyId { get; set; }
 
-    [ForeignKey("ProjectId")]
-    public PortfolioProject Project { get; set; }
-
-    [ForeignKey("TechnologyId")]
-    public Technology Technology { get; set; }
+    public PortfolioProject? Project { get; set; }
+    public Technology? Technology { get; set; }
 }

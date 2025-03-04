@@ -15,7 +15,8 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<PortfolioProject>().ToTable("projects");
-        modelBuilder.Entity<ProjectTechnologies>().ToTable("project_technologies");
+        modelBuilder.Entity<ProjectTechnologies>().ToTable("project_technologies")
+                .HasKey(pt => new { pt.ProjectId, pt.TechnologyId });
         modelBuilder.Entity<Technology>().ToTable("technologies");
         modelBuilder.Entity<User>().ToTable("users");
 

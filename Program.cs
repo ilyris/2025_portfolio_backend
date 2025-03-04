@@ -1,6 +1,7 @@
+using Amazon;
+using Amazon.S3;
 using Microsoft.EntityFrameworkCore;
 using PortfolioAPI;
-using PortfolioAPI.Login;
 using PortfolioAPI.Project;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,12 +26,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
-// ✅ Register ProjectService (now correctly using PortfolioAPI.Project)
 builder.Services.AddScoped<ProjectService>();
-builder.Services.AddScoped<LoginService>();
-builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+builder.Services.AddScoped<S3Service>();
 
-// ✅ Ensure correct database connection setup
+
 var connectionString =
     builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
@@ -41,6 +40,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         o => o.SetPostgresVersion(13, 0)
     )
 );
+
+builder.Services.AddSingleton<IAmazonS3>(sp => new AmazonS3Client(
+    builder.Configuration["AWS:AccessKey"],
+    builder.Configuration["AWS:SecretKey"],
+    RegionEndpoint.GetBySystemName(builder.Configuration["AWS:Region"])
+));
+
 
 var app = builder.Build();
 

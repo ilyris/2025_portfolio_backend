@@ -11,4 +11,6 @@ public class Technology
     public int Id { get; set; }
     [Column("name")]
     public required string Name { get; set; }
+    [Column("normalized_name")]
+    public required string NormalizedName { get; set; }
 }
