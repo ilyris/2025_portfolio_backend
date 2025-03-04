@@ -1,3 +1,4 @@
+using System.Transactions; // ✅ Import Transactions
 using Microsoft.EntityFrameworkCore;
 using PortfolioAPI.Models.Data;
 
@@ -7,6 +8,16 @@ public class ProjectService
 {
     private readonly AppDbContext _dbContext;
 
+    private static string CapitalizeFirstLetter(string input)
+    {
+        if (string.IsNullOrEmpty(input)) return input;
+        return char.ToUpper(input[0]) + input.Substring(1).ToLower();
+    }
+    private static string NormalizeTechnologyName(TechnologyDto input)
+    {
+        if (string.IsNullOrEmpty(input.Name)) return input.Name;
+        return input.Name.Trim().ToLower().Replace("-", " "); // redux-toolkit -> redux toolkit
+    }
     public ProjectService(AppDbContext dbContext)
     {
         _dbContext = dbContext;
@@ -35,4 +46,64 @@ public class ProjectService
 
         return projects;
     }
+
+    public async Task<List<TechnologyDto>> GetTechnologies()
+    {
+        var technologies = await _dbContext.Technologies
+                    .Select(technology => new TechnologyDto
+                    {
+                        Id = technology.Id,
+                        Name = technology.Name
+                    }).ToListAsync();
+
+        return technologies;
+    }
+
+    public async Task<object> AddProject(ProjectCreationRequestDto projectDto)
+    {
+        using var transaction = await _dbContext.Database.BeginTransactionAsync();
+
+        try
+        {
+            Console.WriteLine(projectDto);
+
+            var newProject = new PortfolioProject
+            {
+                Title = projectDto.Title,
+                Description = projectDto.Description,
+                Github = projectDto.Github,
+                WebsiteUrl = projectDto.WebsiteUrl,
+                Image = string.IsNullOrEmpty(projectDto.ImageUrl) ? null : projectDto.ImageUrl,
+            };
+
+            _dbContext.Projects.Add(newProject);
+            await _dbContext.SaveChangesAsync();
+
+            var newProjectTechnologies = projectDto.Technologies
+                .Select(tech => new ProjectTechnologies
+                {
+                    ProjectId = newProject.Id,
+                    TechnologyId = tech.Id
+                })
+                .ToList();
+
+
+            if (newProjectTechnologies.Count > 0)
+            {
+                await _dbContext.ProjectTechnologies.AddRangeAsync(newProjectTechnologies);
+                await _dbContext.SaveChangesAsync();
+            }
+
+            await transaction.CommitAsync();
+
+            return new { message = "Project added successfully", projectId = newProject.Id };
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            Console.WriteLine("Error adding project: " + ex.Message);
+            return new { error = "Failed to add project", details = ex.Message };
+        }
+    }
+
 }
