@@ -7,17 +7,6 @@ namespace PortfolioAPI.Project;
 public class ProjectService
 {
     private readonly AppDbContext _dbContext;
-
-    private static string CapitalizeFirstLetter(string input)
-    {
-        if (string.IsNullOrEmpty(input)) return input;
-        return char.ToUpper(input[0]) + input.Substring(1).ToLower();
-    }
-    private static string NormalizeTechnologyName(TechnologyDto input)
-    {
-        if (string.IsNullOrEmpty(input.Name)) return input.Name;
-        return input.Name.Trim().ToLower().Replace("-", " "); // redux-toolkit -> redux toolkit
-    }
     public ProjectService(AppDbContext dbContext)
     {
         _dbContext = dbContext;

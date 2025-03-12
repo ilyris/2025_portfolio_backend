@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using PortfolioAPI.Project;
-using PortfolioAPI.Models.Data;
 using PortfolioAPI.Services;
 
 namespace PortfolioAPI.Project

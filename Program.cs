@@ -1,7 +1,11 @@
+using System.Net;
+using System.Net.Mail;
 using Amazon;
 using Amazon.S3;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using PortfolioAPI;
+using PortfolioAPI.Email;
 using PortfolioAPI.Project;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +32,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<ProjectService>();
 builder.Services.AddScoped<S3Service>();
+builder.Services.AddScoped<EmailService>();
 
 
 var connectionString =
@@ -47,6 +52,8 @@ builder.Services.AddSingleton<IAmazonS3>(sp => new AmazonS3Client(
     RegionEndpoint.GetBySystemName(builder.Configuration["AWS:Region"])
 ));
 
+// Set up Email client connection.
+builder.Services.AddSingleton<EmailService>();
 
 var app = builder.Build();
 
@@ -57,8 +64,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// ✅ Step 2: Apply CORS Before Routing
 app.UseCors(corsPolicyName);
 app.UseHttpsRedirection();
-app.MapControllers(); // Maps attribute-routed controllers
+app.MapControllers();
 app.Run();

@@ -7,7 +7,7 @@ public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    public DbSet<PortfolioProject> Projects { get; set; }  // ✅ Fix: Use renamed class
+    public DbSet<PortfolioProject> Projects { get; set; }
     public DbSet<ProjectTechnologies> ProjectTechnologies { get; set; }
     public DbSet<Technology> Technologies { get; set; }
     public DbSet<User> Users { get; set; }
