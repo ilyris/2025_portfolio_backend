@@ -33,6 +33,7 @@ public class EmailService
         mailBody.AppendFormat($"<h1>{emailObject.Name} General Information</h1>");
         mailBody.AppendFormat("<br />");
         mailBody.AppendFormat($"<p>{emailObject.Message}</p>");
+        mailBody.AppendFormat($"<p>From Email: {emailObject.Email}</p>");
         mailMessage.Body = mailBody.ToString();
 
         // Send email
