@@ -1,9 +1,7 @@
 
-using System.ComponentModel;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace PortfolioAPI.Email;
 
